@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Content.css';
 
 const Image = ({image}) => (    
@@ -13,16 +13,12 @@ const Audio = ({audio}) => (
     <audio src={audio} controls />
 );
 
-class Content extends Component {
-    render() {
-        return (
-            <div>
-                <Image image={this.props.image} />
-                <Text text={this.props.text} />
-                <Audio audio={this.props.audio} />
-            </div>
-        );
-    }
-}
+const Content = ({image, text, audio}) => (
+    <div>
+        <Image image={image} />
+        <Text text={text} />
+        <Audio audio={audio} />
+    </div>
+);
 
 export default Content;
