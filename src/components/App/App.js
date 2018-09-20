@@ -22,9 +22,7 @@ class App extends Component {
           cat2: {}
         },
         text: { // TODO: update text categories to what they should be
-          cat0: {},
-          cat1: {},
-          cat2: {}
+
         }
       }
     };
@@ -36,8 +34,14 @@ class App extends Component {
   }
 
   getText(category, tabIndex) {
-    // TODO: implement this
-    // Return the text from cache if it exists. If not, fetch and add to cache
+    fetch('res/texts/' + category + '.json')
+    .then((res) => res.json())
+    .then((data) => {
+      let updatedCache = Object.assign({}, this.state.cache.text, {[category]: {[Object.keys(data)[tabIndex]]: data[Object.keys(data)[tabIndex]]} });
+      this.setState({
+        cache: updatedCache
+      })
+    })
   }
 
   // Select tab to show
@@ -68,5 +72,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
