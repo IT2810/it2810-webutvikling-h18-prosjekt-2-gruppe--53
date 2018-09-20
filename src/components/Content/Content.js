@@ -1,12 +1,24 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Content.css';
 
-class Content extends Component {
-    render() {
-        return (
-            <div>Content</div>
-        );
-    }
-}
+const Image = ({image}) => (    
+    <div dangerouslySetInnerHTML={{__html: image}} />
+);
+
+const Text = ({text}) => (
+    <p>{text}</p>
+);
+
+const Audio = ({audio}) => (
+    <audio src={audio} controls />
+);
+
+const Content = ({image, text, audio}) => (
+    <div>
+        <Image image={image} />
+        <Text text={text} />
+        <Audio audio={audio} />
+    </div>
+);
 
 export default Content;
