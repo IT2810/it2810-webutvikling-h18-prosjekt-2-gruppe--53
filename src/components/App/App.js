@@ -21,9 +21,7 @@ class App extends Component {
           cat1: {},
           cat2: {}
         },
-        text: { // TODO: update text categories to what they should be
-
-        }
+        text: {}
       }
     };
   }
@@ -34,14 +32,23 @@ class App extends Component {
   }
 
   getText(category, tabIndex) {
-    fetch('res/texts/' + category + '.json')
-    .then((res) => res.json())
-    .then((data) => {
-      let updatedCache = Object.assign({}, this.state.cache.text, {[category]: {[Object.keys(data)[tabIndex]]: data[Object.keys(data)[tabIndex]]} });
-      this.setState({
-        cache: updatedCache
+    if((category in this.state.cache.text) && (tabIndex in this.state.cache.text[category]))
+    {
+      return this.state.cache.text[category][tabIndex];
+    }
+    else
+    {
+      fetch('res/texts/' + category + '.json')
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("bing")
+        let updatedCache = Object.assign({}, this.state.cache.text, {[category]: {[tabIndex]: {[Object.keys(data)[tabIndex]]: data[Object.keys(data)[tabIndex]]}}});
+        this.setState({
+          cache: updatedCache
+        })
+        return this.state.cache.text[category][tabIndex];
       })
-    })
+    }
   }
 
   // Select tab to show
@@ -71,6 +78,7 @@ class App extends Component {
       </div>
     );
   }
+
 }
 
 
