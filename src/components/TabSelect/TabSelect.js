@@ -8,6 +8,7 @@ class TabSelect extends Component {
         this.handleClick = this.handleClick.bind(this);
     }
 
+    // Report back to App component on tab change
     handleClick(index) {
         this.props.callback(index);
     }

@@ -8,10 +8,12 @@ class CatSelect extends Component {
         this.handleChange = this.handleChange.bind(this);
     }
 
+    // Report back to App component on category change
     handleChange(event) {
         this.props.callback(event.target.name, event.target.value);
     }
 
+    // Get categories for the given media
     getCategories(media) {
         if (this.props.categories[media]) {
             let categories = this.props.categories[media];
