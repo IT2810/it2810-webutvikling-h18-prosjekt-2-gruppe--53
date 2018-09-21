@@ -56,8 +56,8 @@ Then we used this checklist to test the application on different browser. The ch
 We have been using git for version control (obviously) and git issues to keep track of tasks.
 
 ## Sources
-All images downloaded from (https://unsplash.com/) before being downsized and converted to svg files.
-All texts written by Ivar Aasen were found at (http://www.aasentunet.no/)
-All lyrics from the works of Jahn Teigen were found on (https://genius.com/) 
-All new year speeches by King Harald V were found on (https://www.regjeringen.no/)
-Audio files are from the Unity Asset Store package: Universal Sound FX, (https://assetstore.unity.com/packages/audio/sound-fx/universal-sound-fx-17256)
+All images downloaded from https://unsplash.com/ before being downsized and converted to svg files.
+All texts written by Ivar Aasen were found at http://www.aasentunet.no/
+All lyrics from the works of Jahn Teigen were found on https://genius.com/ 
+All new year speeches by King Harald V were found on https://www.regjeringen.no/
+Audio files are from the Unity Asset Store package: Universal Sound FX, https://assetstore.unity.com/packages/audio/sound-fx/universal-sound-fx-17256
