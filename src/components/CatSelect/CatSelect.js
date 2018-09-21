@@ -33,18 +33,18 @@ class CatSelect extends Component {
 
     render() {
         return (
-            <div>
+            <div className='categories'>
                 <form onChange={this.handleChange}>
                     <fieldset>
-                        Image
+                        <b>Image</b>
                         {this.getCategories('image')}
                     </fieldset>
                     <fieldset>
-                        Text
+                        <b>Text</b>
                         {this.getCategories('text')}
                     </fieldset>
                     <fieldset>
-                        Audio
+                        <b>Audio</b>
                         {this.getCategories('audio')}
                     </fieldset>
                 </form>

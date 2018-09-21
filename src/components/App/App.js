@@ -130,14 +130,23 @@ class App extends Component {
     const text = this.getText();
     const audio = this.getAudio();
 
+    let content;
+    if (image && text && audio) {
+      content = <Content image={image} text={text} audio={audio} />;
+    } else {
+      content = <div><h2>Please select categories and tab.</h2></div>
+    }
+
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to Prosjekt 2</h1>
+          <h1 className="App-title">Prosjekt 2</h1>
         </header>
-        <CatSelect callback={this.selectCategory} categories={this.state.categories} />
-        <TabSelect callback={this.selectTab} selected={this.state.selectedTab} />
-        <Content image={image} text={text} audio={audio} />
+        <div className="wrapper">
+          <CatSelect callback={this.selectCategory} categories={this.state.categories} />
+          <TabSelect callback={this.selectTab} selected={this.state.selectedTab} />
+          {content}
+        </div>
       </div>
     );
   }

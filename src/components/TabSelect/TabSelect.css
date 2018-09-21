@@ -1,5 +1,6 @@
 .tabs {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
@@ -8,6 +9,7 @@
     height: 60px;
     line-height: 60px;
     vertical-align: middle;
+    border: 1px solid gray;
 }
 
 .tab:hover {
@@ -17,4 +19,10 @@
 
 .tab-active {
     background-color: #77C5FF;
+}
+
+@media (max-width: 400px) {
+    .tabs {
+        flex-direction: column;
+    }
 }

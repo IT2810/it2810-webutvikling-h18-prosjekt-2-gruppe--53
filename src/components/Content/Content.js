@@ -2,19 +2,24 @@ import React from 'react';
 import './Content.css';
 
 const Image = ({image}) => (    
-    <div dangerouslySetInnerHTML={{__html: image}} />
+    <div className='image' dangerouslySetInnerHTML={{__html: image}} />
 );
 
 const Text = ({text}) => (
-    <p>{text ? text.body : ''}</p>
+    <div className='text'>
+        <h1>{text ? text.title : ''}</h1>
+        {text ? text.body : ''}
+    </div>
 );
 
 const Audio = ({audio}) => (
-    <audio src={audio} controls />
+    <div className='audio'>
+        <audio src={audio} controls />
+    </div>
 );
 
 const Content = ({image, text, audio}) => (
-    <div>
+    <div className='content'>
         <Image image={image} />
         <Text text={text} />
         <Audio audio={audio} />
