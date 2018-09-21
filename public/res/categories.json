@@ -1,0 +1,17 @@
+{
+    "image": {
+        "cat0": "Category 0",
+        "cat1": "Category 1",
+        "cat2": "Category 2"
+    },
+    "text": {
+        "cat0": "Category 0",
+        "cat1": "Category 1",
+        "cat2": "Category 2"
+    },
+    "audio": {
+        "animals": "Animals",
+        "tools": "Tools",
+        "vehicles": "Vehicles"
+    }
+}

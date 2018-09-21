@@ -20,7 +20,8 @@ class App extends Component {
       cache: {
         image: {},
         text: {}
-      }
+      },
+      categories: {}
     };
   }
 
@@ -72,13 +73,27 @@ class App extends Component {
     });
   }
 
+  loadCategories() {
+    fetch('res/categories.json')
+    .then((res) => res.json())
+    .then((data) => {
+      this.setState({
+        categories: data
+      });
+    });
+  }
+
+  componentDidMount() {
+    this.loadCategories();
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Welcome to Prosjekt 2</h1>
         </header>
-        <CatSelect callback={this.selectCategory} />
+        <CatSelect callback={this.selectCategory} categories={this.state.categories} />
         <TabSelect callback={this.selectTab} selected={this.state.selectedTab} />
         <Content />
       </div>

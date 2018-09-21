@@ -12,27 +12,38 @@ class CatSelect extends Component {
         this.props.callback(event.target.name, event.target.value);
     }
 
+    getCategories(media) {
+        if (this.props.categories[media]) {
+            let categories = this.props.categories[media];
+            let elements = [];
+            for (let key in categories) {
+                elements.push(
+                    <div key={key}>
+                        <label>{categories[key]}</label>
+                        <input type='radio' value={key} name={media}></input>
+                    </div>
+                );
+            }
+            return elements;
+        }
+        return false;
+    }
+
     render() {
         return (
             <div>
                 <form onChange={this.handleChange}>
                     <fieldset>
-                        <label>Image</label>
-                        <input type='radio' value='cat0' name='image'></input>
-                        <input type='radio' value='cat1' name='image'></input>
-                        <input type='radio' value='cat2' name='image'></input>
+                        Image
+                        {this.getCategories('image')}
                     </fieldset>
                     <fieldset>
-                        <label>Text</label>
-                        <input type='radio' value='cat0' name='text'></input>
-                        <input type='radio' value='cat1' name='text'></input>
-                        <input type='radio' value='cat2' name='text'></input>
+                        Text
+                        {this.getCategories('text')}
                     </fieldset>
                     <fieldset>
-                        <label>Audio</label>
-                        <input type='radio' value='animals' name='audio'></input>
-                        <input type='radio' value='tools' name='audio'></input>
-                        <input type='radio' value='vehicles' name='audio'></input>
+                        Audio
+                        {this.getCategories('audio')}
                     </fieldset>
                 </form>
             </div>
