@@ -1,6 +1,6 @@
 # Project 2
 
-This project revolves around making an online exhibition of sound, svg-images, and text. This single page application uses React and AJAX. With responsive web design, the exhibition will adapt to changes made to the screen size or devices used.
+This project revolves around making an online exhibition of sound, svg-images, and text. This single page application uses React and AJAX. With responsive web design, the exhibition will adapt to changes made to the screen size or user device.
 
 ## React
 The create-react-app npm package was used to set up the initial project. No other packages has been used. The app is structured into multiple stateful and stateless components:
