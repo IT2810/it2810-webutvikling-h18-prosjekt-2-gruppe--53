@@ -25,6 +25,7 @@ class App extends Component {
     };
   }
 
+  // Fetch image for given category and tab index if it doesn't exist in cache
   fetchImage(category, tabIndex) {
     if(!(category in this.state.cache.image) || !(tabIndex in this.state.cache.image[category]))
     {
@@ -42,6 +43,7 @@ class App extends Component {
     }
   }
 
+  // Fetch text JSON file for given category if it doesn't exist in cache
   fetchText(category) {
     if(!this.state.cache.text[category])
     {
@@ -72,6 +74,7 @@ class App extends Component {
     });
   }
 
+  // Load categories.json for dynamically setting categories in CatSelect component
   loadCategories() {
     fetch('res/categories.json')
     .then((res) => res.json())
@@ -87,8 +90,12 @@ class App extends Component {
   }
 
   componentDidUpdate() {
+    // Fetch image + text if possible when component gets updated
     const selectedCategory = this.state.selectedCategory;
-    if (selectedCategory.image && selectedCategory.text && selectedCategory.audio && this.state.selectedTab !== undefined) {
+    if (selectedCategory.image
+      && selectedCategory.text
+      && selectedCategory.audio
+      && this.state.selectedTab !== undefined) {
       this.fetchImage(selectedCategory.image, this.state.selectedTab);
       this.fetchText(selectedCategory.text, this.state.selectedTab);
     }
@@ -118,6 +125,7 @@ class App extends Component {
 
   render() {
 
+    // Get the media content
     const image = this.getImage();
     const text = this.getText();
     const audio = this.getAudio();
