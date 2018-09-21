@@ -27,11 +27,11 @@ Images and text are loaded on demand. This means that we only load as much data 
 We have used one JSON file per text category. Originally we thought our alternatives were to have one file per text, or just a single one. One single file would show off the strength of JSON’s hierarchy, but would result in us having to cache all texts on the first load. Having one JSON per text would allow us to only load the text we needed at the time, but would defeat a lot of the purpose of using JSON. Having one file per category was a choice made to show off the best of both worlds. The idea wasn’t that this would be the best solution, just that it would show off and demonstrate both methods.
 
 ## Responsive Web Design
-By making the design responsive we made sure that the web page would work intuitively to the user’s screen or device. This was done with the use of a few different components:
-- **Viewport**: Viewport optimizes the web page for different screen sizes and devices. Using the viewport tag gives the browser instructions on how to control the page’s dimensions and scaling.
+By making the design responsive we made sure that the web page would work intuitively to the users screen or device. This was done with the use of a few different components:
+- **Viewport**: Viewport optimizes the web page for different screen sizes and devices. Using the viewport tag gives the browser instructions on how to control the page dimensions and scaling.
 - **Media-queries**: Media queries makes it possible to specify CSS based on the device and whether it matches the media query criteria. It makes it easier to specify how the web page should look depending on the height and width of the user device. While viewport is for the entire content, media queries deals with the container within.
-- **Scaling images**: Responsive images adjusts to fit the screen of the user device. Images often have a fixed size which can result in having to scroll to see the full image on smaller devices. With the responsive layout the images will scale down to fit widthwise within the screen.
-- **Layout**: Using either flexbox or CSS-grid makes it a lot easier to have a responsive web design. In this project both flexbox and CSS-grid have been used. Flexbox, being designed for a layout in one dimension, is perfect for when the screen becomes small enough to only accommodate for one column. When the screen has a bigger width however the layout will use CSS-grid.
+- **Scaling images**: Responsive images adjusts to fit the screen of the user device. Images often have a fixed size which can result in having to scroll to see the full image on smaller devices. With the responsive layout, the images will scale down to fit width wise within the screen.
+- **Layout**: Using either flexbox or CSS-grid makes it a lot easier to have a responsive web design. In this project both flexbox and CSS-grid have been used. Flexbox, being designed for a layout in one dimension, is perfect for when the screen becomes small enough to only accommodate for one column. When the screen has a bigger width however, the layout will use CSS-grid.
 
 ## Testing
 We put together a small checklist for systematic testing of the application.
@@ -57,7 +57,7 @@ We have been using git for version control (obviously) and git issues to keep tr
 
 ## Sources
 All images downloaded from https://unsplash.com/ before being downsized and converted to svg files.
-All texts written by Ivar Aasen were found at http://www.aasentunet.no/
-All lyrics from the works of Jahn Teigen were found on https://genius.com/ 
-All new year speeches by King Harald V were found on https://www.regjeringen.no/
-Audio files are from the Unity Asset Store package: Universal Sound FX, https://assetstore.unity.com/packages/audio/sound-fx/universal-sound-fx-17256
+All texts written by Ivar Aasen were found at http://www.aasentunet.no/ .
+All lyrics from the works of Jahn Teigen were found on https://genius.com/ .
+All new year speeches by King Harald V were found on https://www.regjeringen.no/ .
+Audio files are from the Unity Asset Store package: Universal Sound FX, https://assetstore.unity.com/packages/audio/sound-fx/universal-sound-fx-17256 .
