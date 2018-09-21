@@ -8,12 +8,14 @@ class App extends Component {
 
   constructor(props) {
     super(props);
+    this.selectTab = this.selectTab.bind(this);
+    this.selectCategory = this.selectCategory.bind(this);
     this.state = {
       selectedTab: null,
       selectedCategory: {
         image: null,
         text: null,
-        sound: null
+        audio: null
       },
       cache: {
         image: { // TODO: update image categories to what they should be
