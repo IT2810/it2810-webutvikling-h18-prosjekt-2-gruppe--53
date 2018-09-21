@@ -25,7 +25,7 @@ class App extends Component {
     };
   }
 
-  getImage(category, tabIndex) {
+  fetchImage(category, tabIndex) {
     if(!(category in this.state.cache.image) || !(tabIndex in this.state.cache.image[category]))
     {
       fetch('res/images/' + category + "/tab" + tabIndex + '.svg')
@@ -42,7 +42,7 @@ class App extends Component {
     }
   }
 
-  getText(category) {
+  fetchText(category) {
     if(!this.state.cache.text[category])
     {
       fetch('res/texts/' + category + '.json')
@@ -89,12 +89,12 @@ class App extends Component {
   componentDidUpdate() {
     const selectedCategory = this.state.selectedCategory;
     if (selectedCategory.image && selectedCategory.text && selectedCategory.audio && this.state.selectedTab !== undefined) {
-      this.getImage(selectedCategory.image, this.state.selectedTab);
-      this.getText(selectedCategory.text, this.state.selectedTab);
+      this.fetchImage(selectedCategory.image, this.state.selectedTab);
+      this.fetchText(selectedCategory.text, this.state.selectedTab);
     }
   }
 
-  getSelectedImage() {
+  getImage() {
     const category = this.state.selectedCategory.image;
     const tabIndex = this.state.selectedTab;
     const images = Object.assign({}, this.state.cache.image[category]);
@@ -102,7 +102,7 @@ class App extends Component {
     return image;
   }
 
-  getSelectedText() {
+  getText() {
     const category = this.state.selectedCategory.text;
     const tabIndex = this.state.selectedTab;
     const texts = Object.assign({}, this.state.cache.text[category]);
@@ -110,7 +110,7 @@ class App extends Component {
     return text;
   }
 
-  getSelectedAudio() {
+  getAudio() {
     const category = this.state.selectedCategory.audio;
     const tabIndex = this.state.selectedTab;
     return 'res/audio/'+category+'/tab'+tabIndex+'.mp3';
@@ -118,9 +118,9 @@ class App extends Component {
 
   render() {
 
-    const image = this.getSelectedImage();
-    const text = this.getSelectedText();
-    const audio = this.getSelectedAudio();
+    const image = this.getImage();
+    const text = this.getText();
+    const audio = this.getAudio();
 
     return (
       <div className="App">
