@@ -26,10 +26,9 @@ class App extends Component {
   }
 
   getImage(category, tabIndex) {
-    console.log(this.state.cache.image);
     if(!(category in this.state.cache.image) || !(tabIndex in this.state.cache.image[category]))
     {
-      fetch('res/texts/' + category + "/tab" + tabIndex + '.svg')
+      fetch('res/images/' + category + "/tab" + tabIndex + '.svg')
       .then((res) => res.text())
       .then((data) => {
         let newCache = Object.assign({}, this.state.cache);
@@ -43,8 +42,8 @@ class App extends Component {
     }
   }
 
-  getText(category, tabIndex) {
-    if(!(category in this.state.cache.text) || !(tabIndex in this.state.cache.text[category]))
+  getText(category) {
+    if(!this.state.cache.text[category])
     {
       fetch('res/texts/' + category + '.json')
       .then((res) => res.json())
@@ -87,7 +86,42 @@ class App extends Component {
     this.loadCategories();
   }
 
+  componentDidUpdate() {
+    const selectedCategory = this.state.selectedCategory;
+    if (selectedCategory.image && selectedCategory.text && selectedCategory.audio && this.state.selectedTab !== undefined) {
+      this.getImage(selectedCategory.image, this.state.selectedTab);
+      this.getText(selectedCategory.text, this.state.selectedTab);
+    }
+  }
+
+  getSelectedImage() {
+    const category = this.state.selectedCategory.image;
+    const tabIndex = this.state.selectedTab;
+    const images = Object.assign({}, this.state.cache.image[category]);
+    const image = images[tabIndex];
+    return image;
+  }
+
+  getSelectedText() {
+    const category = this.state.selectedCategory.text;
+    const tabIndex = this.state.selectedTab;
+    const texts = Object.assign({}, this.state.cache.text[category]);
+    const text = texts['tab'+tabIndex];
+    return text;
+  }
+
+  getSelectedAudio() {
+    const category = this.state.selectedCategory.audio;
+    const tabIndex = this.state.selectedTab;
+    return 'res/audio/'+category+'/tab'+tabIndex+'.mp3';
+  }
+
   render() {
+
+    const image = this.getSelectedImage();
+    const text = this.getSelectedText();
+    const audio = this.getSelectedAudio();
+
     return (
       <div className="App">
         <header className="App-header">
@@ -95,7 +129,7 @@ class App extends Component {
         </header>
         <CatSelect callback={this.selectCategory} categories={this.state.categories} />
         <TabSelect callback={this.selectTab} selected={this.state.selectedTab} />
-        <Content />
+        <Content image={image} text={text} audio={audio} />
       </div>
     );
   }

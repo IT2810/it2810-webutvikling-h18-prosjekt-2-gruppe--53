@@ -6,7 +6,7 @@ const Image = ({image}) => (
 );
 
 const Text = ({text}) => (
-    <p>{text}</p>
+    <p>{text ? text.body : ''}</p>
 );
 
 const Audio = ({audio}) => (

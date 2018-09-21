@@ -1,13 +1,13 @@
 {
     "image": {
-        "cat0": "Category 0",
-        "cat1": "Category 1",
-        "cat2": "Category 2"
+        "animals": "Animals",
+        "landscapes": "Landscapes",
+        "objects": "Objects"
     },
     "text": {
-        "cat0": "Category 0",
-        "cat1": "Category 1",
-        "cat2": "Category 2"
+        "aasen": "Aasen",
+        "taler": "Taler",
+        "teigen": "Teigen"
     },
     "audio": {
         "animals": "Animals",
