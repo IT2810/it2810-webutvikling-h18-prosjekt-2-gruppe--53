@@ -31,19 +31,14 @@ class App extends Component {
       fetch('res/texts/' + category + "/tab" + tabIndex + '.svg')
       .then((res) => res.text())
       .then((data) => {
-        console.log(data);
-        let updatedCache = Object.assign({}, this.state.cache, {
-          image: {
-            [category]: {
-              ["tab"+tabIndex]: data
-            }
-          }
-        });
-        console.log(updatedCache);
+        let newCache = Object.assign({}, this.state.cache);
+        let newCat = Object.assign({}, newCache.image[category]);
+        newCat[tabIndex] = data;
+        newCache.image[category] = newCat;
         this.setState({
-          cache: updatedCache
-        })
-      })
+          cache: newCache
+        });
+      });
     }
   }
 
@@ -53,17 +48,12 @@ class App extends Component {
       fetch('res/texts/' + category + '.json')
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        let updatedCache = Object.assign({}, this.state.cache, {
-          text: {
-            [category]: data
-          }
-        });
-        console.log(updatedCache);
+        let newCache = Object.assign({}, this.state.cache);
+        newCache.text[category] = data;
         this.setState({
-          cache: updatedCache
-        })
-      })
+          cache: newCache
+        });
+      });
     }
   }
 
@@ -94,12 +84,6 @@ class App extends Component {
       </div>
     );
   }
-  componentDidMount() {
-    this.getImage("animals", 0);
-    this.getText("taler", "tab1");
-  }
-
 }
-
 
 export default App;

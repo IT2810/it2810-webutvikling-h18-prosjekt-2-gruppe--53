@@ -1,5 +1,4 @@
 {
-  "name" : "Nyttårstaler",
   "tab1" :{
     "title" : "Nyttårstalen 2017",
     "body" :
@@ -19,6 +18,6 @@
     "title" : "Nyttårstalen 2014",
     "body" :
     "Hans Majestet Kong Haralds tale nyttårsaften 2014."
-  },
+  }
 
 }
