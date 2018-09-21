@@ -74,8 +74,8 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to Prosjekt 2</h1>
         </header>
-        <CatSelect />
-        <TabSelect />
+        <CatSelect callback={this.selectCategory} />
+        <TabSelect callback={this.selectTab} selected={this.state.selectedTab} />
         <Content />
       </div>
     );
