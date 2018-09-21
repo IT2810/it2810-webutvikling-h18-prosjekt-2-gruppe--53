@@ -18,37 +18,51 @@ class App extends Component {
         audio: null
       },
       cache: {
-        image: { // TODO: update image categories to what they should be
-          cat0: {},
-          cat1: {},
-          cat2: {}
-        },
+        image: {},
         text: {}
       }
     };
   }
 
   getImage(category, tabIndex) {
-    // TODO: implement this
-    // Return the image from cache if it exists. If not, fetch and add to cache
+    console.log(this.state.cache.image);
+    if(!(category in this.state.cache.image) || !(tabIndex in this.state.cache.image[category]))
+    {
+      fetch('res/texts/' + category + "/tab" + tabIndex + '.svg')
+      .then((res) => res.text())
+      .then((data) => {
+        console.log(data);
+        let updatedCache = Object.assign({}, this.state.cache, {
+          image: {
+            [category]: {
+              ["tab"+tabIndex]: data
+            }
+          }
+        });
+        console.log(updatedCache);
+        this.setState({
+          cache: updatedCache
+        })
+      })
+    }
   }
 
   getText(category, tabIndex) {
-    if((category in this.state.cache.text) && (tabIndex in this.state.cache.text[category]))
-    {
-      return this.state.cache.text[category][tabIndex];
-    }
-    else
+    if(!(category in this.state.cache.text) || !(tabIndex in this.state.cache.text[category]))
     {
       fetch('res/texts/' + category + '.json')
       .then((res) => res.json())
       .then((data) => {
-        console.log("bing")
-        let updatedCache = Object.assign({}, this.state.cache.text, {[category]: {[tabIndex]: {[Object.keys(data)[tabIndex]]: data[Object.keys(data)[tabIndex]]}}});
+        console.log(data);
+        let updatedCache = Object.assign({}, this.state.cache, {
+          text: {
+            [category]: data
+          }
+        });
+        console.log(updatedCache);
         this.setState({
           cache: updatedCache
         })
-        return this.state.cache.text[category][tabIndex];
       })
     }
   }
@@ -79,6 +93,10 @@ class App extends Component {
         <Content />
       </div>
     );
+  }
+  componentDidMount() {
+    this.getImage("animals", 0);
+    this.getText("taler", "tab1");
   }
 
 }

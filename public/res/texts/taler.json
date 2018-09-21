@@ -1,0 +1,24 @@
+{
+  "name" : "Nyttårstaler",
+  "tab1" :{
+    "title" : "Nyttårstalen 2017",
+    "body" :
+    "Hans Majestet Kong Haralds tale nyttårsaften 2017."
+  },
+  "tab2" :{
+    "title" : "Nyttårstalen 2016",
+    "body" :
+    "Hans Majestet Kong Haralds tale nyttårsaften 2016."
+  },
+  "tab3" :{
+    "title" : "Nyttårstalen 2015",
+    "body" :
+    "Hans Majestet Kong Haralds tale nyttårsaften 2015."
+  },
+  "tab4" :{
+    "title" : "Nyttårstalen 2014",
+    "body" :
+    "Hans Majestet Kong Haralds tale nyttårsaften 2014."
+  },
+
+}
