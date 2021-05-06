@@ -5,7 +5,7 @@
   "dependencies": {
     "ajv": "^6.10.0",
     "braces": "^3.0.2",
-    "handlebars": "^4.5.3",
+    "handlebars": "^4.7.7",
     "js-yaml": "^3.13.1",
     "merge": "^1.2.1",
     "react": "^16.8.6",
